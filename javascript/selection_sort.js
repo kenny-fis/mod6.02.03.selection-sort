@@ -1,5 +1,16 @@
 function selectionSort(arr) {
   // type your code here
+  const sorted = [...arr];
+  for (let i=0; i<sorted.length; i++) {
+    let smallestIndex = i;
+    for (let j=i+1; j<sorted.length; j++) {
+      if (sorted[j] < sorted[smallestIndex]) {
+        smallestIndex = j;
+      }
+    }
+    [sorted[i], sorted[smallestIndex]] = [sorted[smallestIndex], sorted[i]]
+  }
+  return sorted;
 }
 
 if (require.main === module) {
